@@ -21,8 +21,8 @@ class Home extends Component {
   
   getCharacter() {
     const ts = new Date().getTime()
-    const privateKey = process.env.PRIVATE_KEY
-    const publicKey = process.env.PUBLIC_KEY
+    const privateKey = process.env.REACT_APP_PRIVATE_KEY
+    const publicKey = process.env.REACT_APP_PUBLIC_KEY
     const stringToHash = ts + privateKey + publicKey
     const hash = md5(stringToHash)
     axios.get("https://gateway.marvel.com:443/v1/public/characters?name=elektra&limit=10&" + "ts=" + ts + "&apikey=" + publicKey + "&hash=" + hash)
